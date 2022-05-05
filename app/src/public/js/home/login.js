@@ -10,6 +10,12 @@ function login(){
   const req = {
     id: id.value,
     pw: pw.value
-  }
-  console.log(req, JSON.stringify(req));
+  };
+  fatch('/login', {
+    method: 'post',
+    Headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(req)
+  });
 };
