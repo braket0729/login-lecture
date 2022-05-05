@@ -6,16 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/home/login.css">
   <script src="/js/home/login.js" defer></script>
-  <title>Login</title>
+  <title>Register</title>
 </head>
 <body>
   <div class="login-page">
     <div class="form">
       <form class="login-form">
         <input id="id" type="text" placeholder="아이디" autoComplete="on"/>
+        <input id="name" type="text" placeholder="성명" autoComplete="on"/>
         <input id="password" type="password" placeholder="비밀번호" autoComplete="on"/>
-        <button>로그인</button>
-        <p class="message">가입하지 않았나요? <a href="/register">사용자 등록</a></p>
+        <input id="confirm-password" type="password" placeholder="비밀번호 확인" autoComplete="on"/>
+        <button>완료</button>
+        <p class="message">이미 가입하셨나요?<a href="/login">로그인</a></p>
       </form>
     </div>
   </div>
