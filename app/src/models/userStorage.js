@@ -10,7 +10,6 @@ class UserStorage {
         resolve(data[0]);
       });
     })
-
   }
 
   static async save(userInfo) {

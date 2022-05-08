@@ -8,9 +8,9 @@ class User {
   async login(){
     const client = this.body;
     try {
-      const {id, password} = await UserStorage.getUserInfo(client.id);
-      if (id) {
-        if (id === client.id && password === client.pw) {
+      const user = await UserStorage.getUserInfo(client.id);
+      if (user) {
+        if (user.id === client.id && user.password === client.pw) {
           return{success: true};
         }
         return{success: false, msg: '비밀번호가 틀렸습니다.'}
@@ -20,8 +20,20 @@ class User {
       return {success: false, msg: err};
     }
   };
+
   async register() {
     const client = this.body;
+
+    try {
+      const user = await UserStorage.getUserInfo(client.id);
+      if (user) {
+        return{success: false, msg: '이미 등록되어 있는 아이디 입니다.'}
+      }
+    } catch (err) {
+      return {success: false, msg: err};
+    }
+
+
     try {
       const response = await UserStorage.save(client);
       return response
